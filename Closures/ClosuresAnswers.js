@@ -66,3 +66,26 @@ const addByFour = addByX(4);
 // addByFour(4); // => should return 8
 
 //////////////////////////////////
+// CHALLENGE 4
+
+function once(callbackFunc) {
+  let cashedResult;
+  let hasBeenCalled = false;
+
+  function onceCb(...args) {
+    if (!hasBeenCalled) {
+      cashedResult = callbackFunc(...args);
+      hasBeenCalled = true;
+    }
+    return cashedResult;
+  }
+  return onceCb;
+}
+
+const onceFunc = once(addByTwo);
+
+// /*** Uncomment these to check your work! ***/
+// const onceFunc = once(addByTwo);
+// console.log(onceFunc(4));  // => should log 6
+// console.log(onceFunc(10));  // => should log 6
+// console.log(onceFunc(9001));  // => should log 6
