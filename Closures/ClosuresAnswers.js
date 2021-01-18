@@ -89,3 +89,24 @@ const onceFunc = once(addByTwo);
 // console.log(onceFunc(4));  // => should log 6
 // console.log(onceFunc(10));  // => should log 6
 // console.log(onceFunc(9001));  // => should log 6
+
+//////////////////////////////////
+// CHALLENGE 5
+function after(count, func) {
+  let called = 0;
+  return () => {
+    if (called >= count - 1) {
+      console.log("hello");
+    } else {
+      called++;
+    }
+  };
+}
+
+const called = function () {
+  console.log("hello");
+};
+const afterCalled = after(3, called);
+// afterCalled(); // => nothing is printed
+// afterCalled(); // => nothing is printed
+// afterCalled(); // => 'hello' is printed
