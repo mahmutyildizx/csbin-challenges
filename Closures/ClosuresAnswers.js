@@ -110,3 +110,32 @@ const afterCalled = after(3, called);
 // afterCalled(); // => nothing is printed
 // afterCalled(); // => nothing is printed
 // afterCalled(); // => 'hello' is printed
+
+//////////////////////////////////
+// CHALLENGE 6
+
+function delay(func, wait, ...args) {
+  setTimeout(() => func(...args), wait);
+}
+
+//////////////////////////////////
+// CHALLENGE 7
+
+function rollCall(names) {
+  let index = 0;
+  return () => {
+    if (index >= names.length) {
+      console.log("Everyone accounted for");
+    } else {
+      console.log(names[index]);
+      index++;
+    }
+  };
+}
+
+// /*** Uncomment these to check your work! ***/
+// const rollCaller = rollCall(['Victoria', 'Juan', 'Ruth'])
+// rollCaller() // => should log 'Victoria'
+// rollCaller() // => should log 'Juan'
+// rollCaller() // => should log 'Ruth'
+// rollCaller() // => should log 'Everyone accounted for'
