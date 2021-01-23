@@ -17,5 +17,24 @@ function testMe() {
 function delayedGreet() {
   setTimeout(() => console.log("welcome"), 3000);
 }
+
 // Uncomment the following line to check your work!
 // delayedGreet(); // should log (after 3 seconds): welcome
+
+/* CHALLENGE 3 */
+
+function helloGoodbye() {
+  setTimeout(() => console.log("good bye"), 2000);
+  console.log("hello");
+}
+
+// Uncomment the following line to check your work!
+// helloGoodbye(); // should log: hello // should also log (after 2 seconds): good bye
+
+/* CHALLENGE 4 */
+
+function brokenRecord() {
+  setInterval(() => console.log("hi again"), 1000);
+}
+// Uncomment the following line to check your work!
+// brokenRecord(); // should log (every second): hi again
