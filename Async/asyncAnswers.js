@@ -38,3 +38,12 @@ function brokenRecord() {
 }
 // Uncomment the following line to check your work!
 // brokenRecord(); // should log (every second): hi again
+
+/* CHALLENGE 5 */
+
+function limitedRepeat() {
+  const interval = setInterval(() => console.log("hi for now"), 1000);
+  setTimeout(() => clearInterval(interval), 5000);
+}
+// Uncomment the following line to check your work!
+// limitedRepeat(); // should log (every second, for 5 seconds): hi for now
