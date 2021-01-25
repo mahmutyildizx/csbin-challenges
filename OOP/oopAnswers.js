@@ -48,3 +48,29 @@ const sandra = personFromPersonStore("Sandra", 26);
 // add code here
 
 sandra.introduce(); // -> Logs 'Hi, my name is Sandra'
+
+/*** CHALLENGE 5 ***/
+
+function PersonConstructor() {
+  this.greet = () => console.log("Hello");
+}
+
+// /********* Uncomment this line to test your work! *********/
+const simon = new PersonConstructor();
+// simon.greet(); // -> Logs 'hello'
+
+/*** CHALLENGE 6 ***/
+
+function personFromConstructor(name, age) {
+  const person = new PersonConstructor();
+  person.name = name;
+  person.age = age;
+  return person;
+}
+
+const mike = personFromConstructor("Mike", 30);
+
+// /********* Uncomment these lines to test your work! *********/
+// console.log(mike.name); // -> Logs 'Mike'
+// console.log(mike.age); //-> Logs 30
+// mike.greet(); //-> Logs 'hello'
