@@ -47,3 +47,15 @@ function limitedRepeat() {
 }
 // Uncomment the following line to check your work!
 // limitedRepeat(); // should log (every second, for 5 seconds): hi for now
+
+/* CHALLENGE 6 */
+
+function everyXsecsForYsecs(func, interval, duration) {
+  const intervalId = setInterval(func, interval);
+  setTimeout(() => clearInterval(intervalId), duration);
+}
+// Uncomment the following lines to check your work!
+function theEnd() {
+  console.log("This is the end!");
+}
+// everyXsecsForYsecs(theEnd, 1000, 5000); // should invoke theEnd function every 2 seconds, for 20 seconds): This is the end!
