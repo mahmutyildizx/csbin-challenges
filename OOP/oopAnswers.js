@@ -110,3 +110,21 @@ class DeveloperClass extends PersonClass {
 // const thai = new DeveloperClass('Thai', 32);
 // console.log(thai.name); // -> Logs 'Thai'
 // thai.introduce(); //-> Logs 'Hello World, my name is Thai'
+
+const userFunctionStore = {
+  sayType: function () {
+    console.log("I am a " + this.type);
+  },
+};
+
+function userFactory(name, score) {
+  let user = Object.create(userFunctionStore);
+  user.type = "User";
+  user.name = name;
+  user.score = score;
+  return user;
+}
+
+/*** CHALLENGE 10 ***/
+
+const adminFunctionStore = Object.create(userFunctionStore);
