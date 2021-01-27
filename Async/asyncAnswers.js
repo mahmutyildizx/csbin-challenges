@@ -59,3 +59,23 @@ function theEnd() {
   console.log("This is the end!");
 }
 // everyXsecsForYsecs(theEnd, 1000, 5000); // should invoke theEnd function every 2 seconds, for 20 seconds): This is the end!
+
+/* CHALLENGE 7 */
+
+function delayCounter(target, wait) {
+  let counter = 0;
+  return () => {
+    const interval = setInterval(() => {
+      counter++;
+      console.log(`After ${counter}, log ${counter}`);
+      if (counter === target) clearInterval(interval);
+    }, wait);
+  };
+}
+
+// UNCOMMENT THESE TO TEST YOUR WORK!
+const countLogger = delayCounter(3, 1000);
+countLogger();
+// After 1 second, log 1
+// After 2 seconds, log 2
+// After 3 seconds, log 3
