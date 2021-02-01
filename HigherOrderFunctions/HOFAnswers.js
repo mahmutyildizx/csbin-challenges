@@ -46,3 +46,27 @@ let alphabet = "";
 const letters = ["a", "b", "c", "d"];
 forEach(letters, (char) => (alphabet += char));
 // console.log(alphabet);   //prints 'abcd'
+
+// Challenge 5
+const arrayForMapWith = [1, 2, 3, 4];
+const mapWith = (array, callback) => {
+  const output = [];
+  array.forEach((item) => {
+    output.push(callback(item));
+  });
+  return output;
+};
+
+// console.log(mapWith(arrayForMapWith, addTwo))
+
+// Challenge 6
+const reduce = (array, reducer, initialValue) => {
+  for (let i = 0; i < array.length; i++) {
+    initialValue = reducer(initialValue, array[i]);
+  }
+  return initialValue;
+};
+
+const nums = [4, 1, 3];
+const add = (a, b) => a + b;
+// console.log(reduce(nums, add, 0));   //-> 8
