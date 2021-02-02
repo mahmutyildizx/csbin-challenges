@@ -70,3 +70,32 @@ const reduce = (array, reducer, initialValue) => {
 const nums = [4, 1, 3];
 const add = (a, b) => a + b;
 // console.log(reduce(nums, add, 0));   //-> 8
+
+// Challenge 7
+const intersection = (...arrays) => {
+  const comparisonFunc = arrays.reduce((acc, curr) => {
+    return acc.length === 0
+      ? [...curr]
+      : curr.filter((item) => acc.includes(item)).sort((a, b) => a - b);
+  }, []);
+  return comparisonFunc;
+};
+
+console.log(
+  intersection([5, 10, 15, 20], [15, 88, 1, 5, 7], [1, 10, 15, 5, 20])
+);
+
+// should log: [5, 15]
+
+// Challenge 8
+const union = (...arrays) => {
+  const solutionFuncWithoutDuplicate = arrays.reduce((acc, curr) => {
+    return acc.length === 0
+      ? [...curr]
+      : [...acc, ...curr.filter((item) => !acc.includes(item))];
+  }, []);
+  return solutionFuncWithoutDuplicate;
+};
+
+console.log(union([5, 10, 15], [15, 88, 1, 5, 7], [100, 15, 10, 1, 5]));
+// should log: [5, 10, 15, 88, 1, 7, 100]
