@@ -11,8 +11,8 @@ const addTwo = (num) => {
 };
 
 // To check if you've completed this function, uncomment these console.logs!
-// console.log(addTwo(3));
-// console.log(addTwo(10));
+console.log(addTwo(3));
+console.log(addTwo(10));
 
 // Challenge 2
 const addS = (word) => {
@@ -20,8 +20,8 @@ const addS = (word) => {
 };
 
 // Uncomment these to check your work
-// console.log(addS('pizza'));
-// console.log(addS('bagel'));
+console.log(addS("pizza"));
+console.log(addS("bagel"));
 
 // Challenge 3
 const map = (array, callback) => {
@@ -32,7 +32,7 @@ const map = (array, callback) => {
   return output;
 };
 
-// console.log(map([1, 2, 3], addTwo));
+console.log(map([1, 2, 3], addTwo));
 
 // Challenge 4
 const forEach = (array, callback) => {
@@ -45,7 +45,7 @@ const forEach = (array, callback) => {
 let alphabet = "";
 const letters = ["a", "b", "c", "d"];
 forEach(letters, (char) => (alphabet += char));
-// console.log(alphabet);   //prints 'abcd'
+console.log(alphabet); //prints 'abcd'
 
 // Challenge 5
 const arrayForMapWith = [1, 2, 3, 4];
@@ -57,7 +57,7 @@ const mapWith = (array, callback) => {
   return output;
 };
 
-// console.log(mapWith(arrayForMapWith, addTwo))
+console.log(mapWith(arrayForMapWith, addTwo));
 
 // Challenge 6
 const reduce = (array, reducer, initialValue) => {
@@ -69,7 +69,7 @@ const reduce = (array, reducer, initialValue) => {
 
 const nums = [4, 1, 3];
 const add = (a, b) => a + b;
-// console.log(reduce(nums, add, 0));   //-> 8
+console.log(reduce(nums, add, 0)); //-> 8
 
 // Challenge 7
 const intersection = (...arrays) => {
@@ -99,3 +99,41 @@ const union = (...arrays) => {
 
 console.log(union([5, 10, 15], [15, 88, 1, 5, 7], [100, 15, 10, 1, 5]));
 // should log: [5, 10, 15, 88, 1, 7, 100]
+
+// Challenge 9
+
+const objOfMatches = (array1, array2, callback) => {
+  const matchedElement = array1.reduce((acc, curr, i) => {
+    if (callback(curr) === array2[i]) {
+      acc[curr] = array2[i];
+    }
+    return acc;
+  }, {});
+
+  return matchedElement;
+};
+
+console.log(
+  objOfMatches(
+    ["hi", "howdy", "bye", "later", "hello"],
+    ["HI", "Howdy", "BYE", "LATER", "hello"],
+    (str) => str.toUpperCase()
+  )
+);
+// should log: { hi: 'HI', bye: 'BYE', later: 'LATER' }
+
+// Challenge 10
+const multiMap = (arrVals, arrCallbacks) => {
+  const result = arrCallbacks.reduce((acc, curr, i) => {
+    let objectKey = arrVals[i];
+    if (objectKey) {
+      acc[arrVals[i]] = arrCallbacks.map((callback) => callback(arrVals[i]));
+    }
+    return acc;
+  }, {});
+
+  return result;
+};
+
+// console.log(multiMap(['catfood', 'glue', 'beer'], [(str) => str.toUpperCase(), (str) => str[0].toUpperCase() + str.slice(1).toLowerCase(), (str) => str + str]));
+// should log: { catfood: ['CATFOOD', 'Catfood', 'catfoodcatfood'], glue: ['GLUE', 'Glue', 'glueglue'], beer: ['BEER', 'Beer', 'beerbeer'] }
