@@ -137,3 +137,27 @@ const multiMap = (arrVals, arrCallbacks) => {
 
 // console.log(multiMap(['catfood', 'glue', 'beer'], [(str) => str.toUpperCase(), (str) => str[0].toUpperCase() + str.slice(1).toLowerCase(), (str) => str + str]));
 // should log: { catfood: ['CATFOOD', 'Catfood', 'catfoodcatfood'], glue: ['GLUE', 'Glue', 'glueglue'], beer: ['BEER', 'Beer', 'beerbeer'] }
+
+// Challenge 11
+const commutative = (func1, func2, value) => {
+  const arrayforFunc = [func1, func2];
+  const resultOfFunctions = arrayforFunc.reduce((acc, curr) => {
+    return curr(acc);
+  }, value);
+
+  const resultOfReversedFunctions = arrayforFunc
+    .reverse()
+    .reduce((acc, curr) => {
+      return curr(acc);
+    }, value);
+
+  return resultOfFunctions === resultOfReversedFunctions;
+};
+
+// /*** Uncomment these to check your work! ***/
+const multBy3 = (n) => n * 3;
+const divBy4 = (n) => n / 4;
+const subtract5 = (n) => n - 5;
+console.log(commutative(multBy3, divBy4, 11)); // should log: true
+console.log(commutative(multBy3, subtract5, 10)); // should log: false
+console.log(commutative(divBy4, subtract5, 48)); // should log: false
