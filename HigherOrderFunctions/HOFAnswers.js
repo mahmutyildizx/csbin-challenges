@@ -161,3 +161,25 @@ const subtract5 = (n) => n - 5;
 console.log(commutative(multBy3, divBy4, 11)); // should log: true
 console.log(commutative(multBy3, subtract5, 10)); // should log: false
 console.log(commutative(divBy4, subtract5, 48)); // should log: false
+
+// Challenge 12
+const objFilter = (obj, callback) => {
+  const keys = Object.keys(obj);
+  const values = Object.values(obj);
+  const filteredObj = keys.reduce((acc, curr, i) => {
+    if (callback(curr) === values[i]) {
+      acc[curr] = values[i];
+    }
+    return acc;
+  }, {});
+
+  return filteredObj;
+};
+
+// /*** Uncomment these to check your work! ***/
+const startingObj = {};
+startingObj[6] = 3;
+startingObj[2] = 1;
+startingObj[12] = 4;
+const half = (n) => n / 2;
+console.log(objFilter(startingObj, half)); // should log: { 2: 1, 6: 3 }
